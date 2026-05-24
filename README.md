@@ -34,15 +34,15 @@ Methods: check\_stock(), add\_copies()
 
 Magic Methods and Decorators (by Safiatou)
 
-\- \_\_str\_\_()  : print(book)
+\- \_\_str\_\_()          : print(book)
 
-\- \_\_eq\_\_()   : compare two books by ISBN
+\- \_\_eq\_\_()           : compare two books by ISBN
 
-\- \_\_len\_\_()  : len(book) returns number of copies
+\- \_\_len\_\_()          : len(book) returns number of copies
 
-\- summary    : book.summary returns a short description
+\- summary            : book.summary returns a short description
 
-\- is\_valid\_isbn() : checks if an ISBN is valid
+\- is\_valid\_isbn()    : checks if an ISBN is valid
 
 
 
@@ -59,4 +59,28 @@ Zarani    : Classe Book
 Safiatou  : Magic methods + Decorators + README
 
 Farida    : main.py
+
+Risnata   : Chef de projet - GitHub et Coordination
+
+
+
+
+
+HOW TO RUN
+
+==========
+
+python main.py
+
+
+
+
+
+COURSE
+
+======
+
+PRG1406 - Advanced Programming (Python and C)
+
+Burkina Institute of Technology - May 2026
 
