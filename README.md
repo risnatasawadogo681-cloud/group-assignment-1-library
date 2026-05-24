@@ -1,4 +1,4 @@
-# Library Management System — Group 1
+# Library Management System — Group 23
 
 ## Description
 This program simulates a university library management system.
