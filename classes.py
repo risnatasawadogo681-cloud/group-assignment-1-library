@@ -99,3 +99,38 @@ class Book(Document):
         return f"{number} copy/copies added. New total: {self.copies}"
 
 # Safiatou code here — Magic methods + Decorators
+# =============================================================
+    #  PARTS 3 & 4 — TASK: Zongo Safiatou
+    #  Magic methods : __str__, __eq__, __len__
+    #  Decorators    : @property, @staticmethod
+    # =============================================================
+
+    def __str__(self) -> str:
+        """Retourne une représentation lisible du livre."""
+        status = "Available" if self.is_available else "Borrowed"
+        return (
+            f"[Book] '{self.title}' by {self.author} ({self.year}) | "
+            f"Genre: {self.genre} | ISBN: {self.isbn} | "
+            f"Copies: {self.copies} | Status: {status}"
+        )
+
+    def __eq__(self, other: object) -> bool:
+        """Deux livres sont égaux s'ils ont le même ISBN."""
+        if not isinstance(other, Book):
+            return NotImplemented
+        return self.isbn == other.isbn
+
+    def __len__(self) -> int:
+        """Retourne le nombre de copies avec len(book)."""
+        return self.copies
+
+    @property
+    def summary(self) -> str:
+        """Résumé court, accessible comme book.summary (sans parenthèses)."""
+        return f"'{self.title}' ({self.year}) — {self.genre} | {self.copies} copies"
+
+    @staticmethod
+    def is_valid_isbn(isbn: str) -> bool:
+        """Vérifie si un ISBN est valide (10 ou 13 chiffres)."""
+        digits_only = isbn.replace("-", "").replace(" ", "")
+        return len(digits_only) in (10, 13) and digits_only.isdigit()
