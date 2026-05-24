@@ -43,5 +43,59 @@ class Document:
 
 
 # Zarani code here — Child class Book
+# =============================================================
+#  PART 2 — TASK: Zarani Mamadou Aboud Kader
+#  Child Class: Book (inherits from Document)
+#  A Book IS a Document — extends it with library-specific data
+# =============================================================
+
+class Book(Document):
+    """
+    Child class representing a physical book in the library.
+    Inherits all attributes and methods from Document,
+    and adds book-specific attributes: ISBN, genre, copies.
+
+    Relationship: A Book IS-A Document.
+    """
+
+    def __init__(self, title: str, author: str, year: int,
+                 isbn: str, genre: str, copies: int):
+        """
+        Initialise a Book instance.
+
+        Args:
+            title  (str): Book title
+            author (str): Author's full name
+            year   (int): Publication year
+            isbn   (str): International Standard Book Number
+            genre  (str): Book genre (e.g. Science, History)
+            copies (int): Number of physical copies in stock
+        """
+        # Call the parent constructor to set shared attributes
+        super().__init__(title, author, year)
+
+        # New attributes specific to Book (not in Document)
+        self.isbn = isbn        # str — unique identifier
+        self.genre = genre      # str — book category
+        self.copies = copies    # int — number of copies available
+
+    def check_stock(self) -> str:
+        """Return a message indicating how many copies are in stock."""
+        if self.copies > 0:
+            return f"IN STOCK: {self.copies} copy/copies available."
+        return "OUT OF STOCK: No copies currently available."
+
+    def add_copies(self, number: int) -> str:
+        """
+        Add more copies of this book to the library collection.
+
+        Args:
+            number (int): Number of copies to add
+
+        Returns:
+            str: Updated stock message
+        """
+        self.copies += number
+        return f"{number} copy/copies added. New total: {self.copies}"
 
 # Safiatou code here — Magic methods + Decorators
